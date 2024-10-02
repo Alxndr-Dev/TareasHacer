@@ -10,6 +10,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
-    "colors": "^1.4.0"
+    "colors": "^1.4.0",
+    "tareas-por-hacer": "file:"
   }
 }
