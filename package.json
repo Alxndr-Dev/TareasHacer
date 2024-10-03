@@ -11,6 +11,7 @@
   "description": "",
   "dependencies": {
     "colors": "^1.4.0",
+    "inquirer": "^7.3.3",
     "tareas-por-hacer": "file:"
   }
 }
