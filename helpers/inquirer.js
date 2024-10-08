@@ -1,7 +1,7 @@
 const inquirer = require('inquirer');
 require('colors');
 
-
+//Opciones del menu
 const preguntas =[
     {
         type: 'list',
@@ -40,7 +40,7 @@ const preguntas =[
     }
 ]
 
-
+//Funcion para mostrar el menu
 const inquirerMenu = async() =>{
 
     console.clear();
@@ -48,12 +48,18 @@ const inquirerMenu = async() =>{
     console.log('   Seleccione una opcion'.green);
     console.log('============================= \n'.green);
 
+    //Se muestran las opciones
     const {opcion} = await inquirer.prompt(preguntas);
+
+    //Obtenemos la opcion seleccionada
     return opcion;
 }
 
+//Funcion para pausar la aplicacion
+//Se pausa hasta que el usuario presione enter
 const pausa = async() => {
 
+    //Pregunta para pausar
     const question = [{
         type: 'input',
         name: 'enter',
@@ -62,7 +68,10 @@ const pausa = async() => {
 
     console.log('\n');
     
+    //Se espera a que el usuario presione enter
     const {enter} = await inquirer.prompt(question);
+    
+    //Obtenemos el enter
     return enter;
 
 
