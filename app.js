@@ -4,12 +4,12 @@ const {inquirerMenu,
     pausa, 
     leerInput
 } = require('./helpers/inquirer');
+
 const Tareas = require('./models/tareas');
 
 
 
 const main = async() =>{
-
 
     let opt = '';
     const tareas = new Tareas();
@@ -26,12 +26,10 @@ const main = async() =>{
                 break;
         
             case '2':
-                console.log(tareas._listado);
+                console.log(tareas.listadoArr);
                 break;
 
         }
-
-
 
 
         //Se pausa la aplicacion mientras el usuario no presione enter
