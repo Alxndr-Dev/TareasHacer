@@ -26,13 +26,19 @@ const main = async() =>{
         //Se muestra el menu y se obtiene la opcion seleccionada
         opt = await inquirerMenu();
         
+        //Se ejecuta la opcion seleccionada
         switch (opt) {
+            //Se crea una tarea
             case '1':
+                //Se obtiene la descripcion de la tarea
                 const desc = await leerInput('Descripcion:');
+                //Se crea la tarea
                 tareas.crearTarea(desc);
                 break;
         
+            //Se listan las tareas
             case '2':
+                //Se listan las tareas
                 console.log(tareas.listadoArr);
                 break;
 
