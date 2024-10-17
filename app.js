@@ -18,8 +18,8 @@ const main = async() =>{
 
     if(tareasDB){
         //Establecer las tareas
+        tareas.cargarTareasFromArray(tareasDB);
     }
-    await pausa();
 
     //Se ejecuta el menu hasta que el usuario seleccione la opcion de salir
     do{
@@ -44,7 +44,7 @@ const main = async() =>{
 
         }
 
-        //guardarDB(tareas.listadoArr);
+        guardarDB(tareas.listadoArr);
 
 
         //Se pausa la aplicacion mientras el usuario no presione enter
