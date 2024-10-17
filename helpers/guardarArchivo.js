@@ -21,7 +21,7 @@ const leerDB = () =>{
     const info = fs.readFileSync(archivo, {encoding: 'utf-8'});
     //Convertimos la informacion a un objeto JSON
     const data = JSON.parse(info);
-    console.log(data);
+    //console.log(data);
 
     //Retornamos la informacion
     return data;

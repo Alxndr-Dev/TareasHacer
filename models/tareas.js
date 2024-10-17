@@ -30,8 +30,16 @@ class Tareas {
         this._listado = {};
     }
 
+    cargarTareasFromArray( tareas = [] ){
+        //Recorremos el array de tareas y las almacenamos en el listado
+        tareas.forEach(tarea =>{
+            //Agregamos la tarea al listado
+            this._listado[tarea.id] = tarea;
+        })
+    }
+
     //Creamos un metodo para cargar las tareas
-    crearTarea(desc = ''){
+    crearTarea( desc = '' ){
         
         //Creamos una nueva tarea
         const tarea = new Tarea(desc); 
