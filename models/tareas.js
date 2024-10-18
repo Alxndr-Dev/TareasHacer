@@ -47,6 +47,25 @@ class Tareas {
         this._listado[tarea.id] = tarea;
     }
 
+    listadoCompleto(){
+
+        console.log();
+        //Obtenemos el listado de tareas
+        this.listadoArr.forEach((tarea , i)=>{
+            //Generamos el indice de la tarea
+            const indice = `${i + 1}`.green;
+            //Obtenemos la descripcion y el estado de la tarea
+            const {desc, completadoEn} = tarea;
+            //Evaluar si la tarea esta completada
+            const estado = (completadoEn) ? 'Completado'.green : 'Pendiente'.red;
+            //Imprimimos la tarea
+            console.log(`${indice} ${desc} :: ${estado}`);
+
+
+        })
+
+    }
+
 }
 
 
