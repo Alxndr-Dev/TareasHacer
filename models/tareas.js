@@ -30,8 +30,10 @@ class Tareas {
         this._listado = {};
     }
 
+    //Creamos un metodo para borrar una tarea
     borrarTarea( id = '' ){
     
+        //Evaluamos si la tarea existe
         if(this._listado[id]){
             delete this._listado[id];
         }

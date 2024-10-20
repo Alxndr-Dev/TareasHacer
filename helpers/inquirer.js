@@ -117,6 +117,11 @@ const listadoTareasBorrar = async( tareas = [] )=>{
         }
     })
 
+    choices.unshift({
+        value: '0',
+        name: '0.'.green + ' Cancelar'
+    });
+
     //Se hace la lista de las tareas a borrar
     const preguntas = [
         {
@@ -134,9 +139,26 @@ const listadoTareasBorrar = async( tareas = [] )=>{
 
 }
 
+const confirmar = async( message )=>{
+
+    //Pregunta para confirmar
+    const question = {
+
+        //Se espera un confirm (Yes/No)
+        type: 'confirm',
+        name: 'ok',
+        message
+    };
+
+    //Se obtiene la respuesta
+    const {ok} = await inquirer.prompt(question);
+    return ok;
+}
+
 module.exports ={
     inquirerMenu,
     pausa,
     leerInput,
-    listadoTareasBorrar
+    listadoTareasBorrar,
+    confirmar
 };
