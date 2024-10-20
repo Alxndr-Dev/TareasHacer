@@ -93,7 +93,7 @@ class Tareas {
             //Si la tarea esta completada
             if(completadoEn){
                 contador += 1;
-                console.log(`${( contador + '.' ).green}  ${desc} :: ${completadoEn.green}`);
+                console.log(`${( contador + '.' ).green}  ${desc} :: ${completadoEn.cyan}`);
             }
         }else {
             //Si la tarea no esta completada
@@ -108,6 +108,32 @@ class Tareas {
 
     }
 
+    //Creamos un metodo para marcar una tarea como completada
+    toggleCompletadas( ids = []){
+        
+        //Recorremos el listado de tareas
+        ids.forEach(id =>{
+            //Obtenemos la tarea por su id
+            const tarea = this._listado[id];
+            //Evaluamos si la tarea no esta completada
+            if (!tarea.completadoEn){
+                //Marcamos la tarea como completada
+                tarea.completadoEn = new Date().toISOString();
+            }
+        })
+
+        //Recorremos el listado de tareas
+        this.listadoArr.forEach(tarea =>{
+
+            //Evaluamos si la tarea no esta en el listado de ids
+            if (!ids.includes(tarea.id)){
+                //Marcamos la tarea como no completada
+                this._listado[tarea.id].completadoEn = null;
+            }
+        })
+
+
+    }
 
 }
 
