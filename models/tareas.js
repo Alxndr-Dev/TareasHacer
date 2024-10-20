@@ -30,6 +30,14 @@ class Tareas {
         this._listado = {};
     }
 
+    borrarTarea( id = '' ){
+    
+        if(this._listado[id]){
+            delete this._listado[id];
+        }
+    }
+
+    //Creamos un metodo para cargar las tareas
     cargarTareasFromArray( tareas = [] ){
         //Recorremos el array de tareas y las almacenamos en el listado
         tareas.forEach(tarea =>{
@@ -69,19 +77,24 @@ class Tareas {
     listarPendientesCompletadas( completadas = true ){
 
         console.log();
+        //Inicializamos un contador
         let contador = 0;
 
+        //Recorremos el listado de tareas
         this.listadoArr.forEach(( tarea )=>{
-
+        //Obtenemos la descripcion y el estado de la tarea
         const {desc, completadoEn} = tarea;
         const estado = ( completadoEn ) ? 'Completado'.green : 'Pendiente'.red;
 
+        //Evaluamos el valor de completadas (obtenido por parametro)
         if(completadas){
+            //Si la tarea esta completada
             if(completadoEn){
                 contador += 1;
                 console.log(`${( contador + '.' ).green}  ${desc} :: ${completadoEn.green}`);
             }
         }else {
+            //Si la tarea no esta completada
             if(!completadoEn){
                 contador += 1;
                 console.log(`${( contador + '.' ).green}  ${desc} :: ${estado}`);

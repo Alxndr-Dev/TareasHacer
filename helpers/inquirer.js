@@ -77,12 +77,13 @@ const pausa = async() => {
 }
 
 
-
+//Funcion para leer un input
 const leerInput = async (message)=>{
 
+    //Pregunta para leer un input
     const question = [
+        //Se espera un input
         {
-
         type: 'input',
         name: 'desc',
         message,
@@ -100,9 +101,42 @@ const leerInput = async (message)=>{
     return desc;
 };
 
+//Funcion para listar las tareas a borrar
+const listadoTareasBorrar = async( tareas = [] )=>{
+
+    //Se evalua si el listado de tareas esta vacio
+    //Se usa el metodo map para obtener un nuevo arreglo con las tareas
+    const choices = tareas.map((tarea, i) =>{
+
+        //Se obtiene el indice de la tarea
+        const idx =  `${i + 1}.`.green;
+        //Se retorna el valor y el nombre de la tarea
+        return {
+            value: tarea.id,
+            name: `${idx} ${tarea.desc}`
+        }
+    })
+
+    //Se hace la lista de las tareas a borrar
+    const preguntas = [
+        {
+            type: 'list',
+            name: 'id',
+            message: 'Borrar',
+            choices
+        }
+    ]
+    //Se obtiene el id de la tarea a borrar
+    const {id} = await inquirer.prompt(preguntas);
+
+    //Se retorna el id de la tarea a borrar
+    return id;
+
+}
 
 module.exports ={
     inquirerMenu,
     pausa,
-    leerInput
+    leerInput,
+    listadoTareasBorrar
 };
